@@ -1,8 +1,8 @@
 <template>
   <v-container text-xs-center v-if="getPosts">
     <v-flex xs12>
-      <v-carousel v-bind="{'cycle': true}" interval ="3000">
-        <v-carousel-item v-for="post in getPosts" :key="post._id" :src="post.imageUrl">
+      <v-carousel v-if="posts.length" v-bind="{'cycle': true}" interval ="3000">
+        <v-carousel-item v-for="post in posts" :key="post._id" :src="post.imageUrl">
           <h1 id="carousel__title">{{post.title}}</h1>
         </v-carousel-item>
       </v-carousel>
@@ -12,30 +12,27 @@
 
 <script>
 import { gql } from 'apollo-boost'
+import { mapActions, mapGetters} from 'vuex'
 export default {
   name: 'home',
   data (){
-    return {}
+    return {
+     
+    }
   },
-  apollo: {
-    getPosts: {
-      query: gql`
-        query {
-          getPosts {
-            _id
-            title,
-            imageUrl,
-            categories,
-            description,
-            createdDate,
-            createdBy {
-              username
-            }
-          }
-        }
-      `
+  computed: {
+     ...mapGetters([
+        'posts'
+      ])
+  },
+  methods: {
+    ...mapActions([
+      'getPosts'
+    ])
+  },
+  created() { 
+    this.getPosts()
   }
-}
 }
 </script>
 <style>
