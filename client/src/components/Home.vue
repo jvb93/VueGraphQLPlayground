@@ -1,7 +1,8 @@
 <template>
   <v-container text-xs-center v-if="getPosts">
+    <loader :loading="loading"/>
     <v-flex xs12>
-      <v-carousel v-if="posts.length" v-bind="{'cycle': true}" interval ="3000">
+      <v-carousel v-if="!loading && posts.length" v-bind="{'cycle': true}" interval ="3000">
         <v-carousel-item v-for="post in posts" :key="post._id" :src="post.imageUrl">
           <h1 id="carousel__title">{{post.title}}</h1>
         </v-carousel-item>
@@ -11,10 +12,13 @@
 </template>
 
 <script>
-import { gql } from 'apollo-boost'
 import { mapActions, mapGetters} from 'vuex'
+import Loader from '@/components/Loader'
 export default {
   name: 'home',
+  components:{
+    Loader
+  },
   data (){
     return {
      
@@ -22,7 +26,8 @@ export default {
   },
   computed: {
      ...mapGetters([
-        'posts'
+        'posts',
+        'loading'
       ])
   },
   methods: {
