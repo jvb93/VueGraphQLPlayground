@@ -9,16 +9,15 @@
     </v-dialog>
 </v-layout>
 
-    
 </template>
 <script>
 export default {
-props:['loading'],
-data(){
-    return{
+  props: ['loading'],
+  data () {
+    return {
 
     }
-}
+  }
 }
 </script>
 

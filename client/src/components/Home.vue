@@ -12,30 +12,30 @@
 </template>
 
 <script>
-import { mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Loader from '@/components/Loader'
 export default {
   name: 'home',
-  components:{
+  components: {
     Loader
   },
-  data (){
+  data () {
     return {
-     
+
     }
   },
   computed: {
-     ...mapGetters([
-        'posts',
-        'loading'
-      ])
+    ...mapGetters([
+      'posts',
+      'loading'
+    ])
   },
   methods: {
     ...mapActions([
       'getPosts'
     ])
   },
-  created() { 
+  created () {
     this.getPosts()
   }
 }

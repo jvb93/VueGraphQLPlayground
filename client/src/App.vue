@@ -63,34 +63,34 @@
 
 <script>
 export default {
-  name: "App",
-  data() {
+  name: 'App',
+  data () {
     return {
       sideNav: false
     }
   },
-  methods:{
-    toggleSideNav() {
+  methods: {
+    toggleSideNav () {
       this.sideNav = !this.sideNav
     }
   },
   computed: {
-    horizontalNavItems() {
+    horizontalNavItems () {
       return [
-        { icon: "chat", title: "Posts", link: "/posts" },
-        { icon: "lock_open", title: "Sign In", link: "/signin" },
-        { icon: "create", title: "Sign Up", link: "/signup" }
-      ];
+        { icon: 'chat', title: 'Posts', link: '/posts' },
+        { icon: 'lock_open', title: 'Sign In', link: '/signin' },
+        { icon: 'create', title: 'Sign Up', link: '/signup' }
+      ]
     },
-    sideNavItems() {
+    sideNavItems () {
       return [
-        { icon: "chat", title: "Posts", link: "/posts" },
-        { icon: "lock_open", title: "Sign In", link: "/signin" },
-        { icon: "create", title: "Sign Up", link: "/signup" }
-      ];
+        { icon: 'chat', title: 'Posts', link: '/posts' },
+        { icon: 'lock_open', title: 'Sign In', link: '/signin' },
+        { icon: 'create', title: 'Sign Up', link: '/signup' }
+      ]
     }
   }
-};
+}
 </script>
 
 <style>
